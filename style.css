@@ -1,0 +1,701 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6ea;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 爱心背景 */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.heart {
+    position: absolute;
+    bottom: -50px;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b81;
+    transform: rotate(45deg);
+    animation: floatUp 5s linear infinite;
+}
+
+.heart:before,
+.heart:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff6b81;
+    border-radius: 50%;
+}
+
+.heart:before {
+    top: -10px;
+    left: 0;
+}
+
+.heart:after {
+    top: 0;
+    left: -10px;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: rotate(45deg) translateY(0) scale(0.5);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(45deg) translateY(-100vh) scale(1);
+        opacity: 0;
+    }
+}
+
+/* 头部 */
+.header {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #ff6b81, #ff8e53);
+    color: white;
+    border-bottom-left-radius: 50% 20%;
+    border-bottom-right-radius: 50% 20%;
+    margin-bottom: 3rem;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* 主体内容 */
+.main-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* 图片区域 */
+.image-section {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.romantic-image {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin: 0 auto;
+    background: linear-gradient(135deg, #ff6b81, #ff8e53, #ff6b81);
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-decoration {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: rotate(45deg);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.heart-decoration:before,
+.heart-decoration:after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+}
+
+.heart-decoration:before {
+    top: -50px;
+    left: 0;
+}
+
+.heart-decoration:after {
+    top: 0;
+    left: -50px;
+}
+
+.heart-decoration-2 {
+    width: 60px;
+    height: 60px;
+    top: 20%;
+    left: 20%;
+    animation-delay: 0.5s;
+}
+
+.heart-decoration-2:before,
+.heart-decoration-2:after {
+    width: 60px;
+    height: 60px;
+}
+
+.heart-decoration-2:before {
+    top: -30px;
+}
+
+.heart-decoration-2:after {
+    left: -30px;
+}
+
+.heart-decoration-3 {
+    width: 80px;
+    height: 80px;
+    bottom: 20%;
+    right: 20%;
+    animation-delay: 1s;
+}
+
+.heart-decoration-3:before,
+.heart-decoration-3:after {
+    width: 80px;
+    height: 80px;
+}
+
+.heart-decoration-3:before {
+    top: -40px;
+}
+
+.heart-decoration-3:after {
+    left: -40px;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: rotate(45deg) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: rotate(45deg) scale(1.1);
+        opacity: 0.6;
+    }
+}
+
+.image-section:hover .romantic-image {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+}
+
+/* 爱的宣言 */
+.declaration-section {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.declaration-section h2 {
+    color: #ff6b81;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.declaration-section p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+/* 倒计时 */
+.countdown-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.countdown-section h2 {
+    color: #ff6b81;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.countdown {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.countdown-item {
+    background-color: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    min-width: 100px;
+}
+
+.countdown-item span {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff6b81;
+}
+
+.countdown-item p {
+    font-size: 1rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* 礼物区域 */
+.gift-section {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.gift-section h2 {
+    color: #ff6b81;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.gift-box {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gift-box:hover {
+    transform: scale(1.05);
+}
+
+.gift-visual {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gift-box-body {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #ff6b81, #ff8e53);
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.gift-box-ribbon {
+    position: absolute;
+    width: 20px;
+    height: 150px;
+    background-color: #ff4757;
+    z-index: 2;
+}
+
+.gift-box-ribbon:before {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 20px;
+    background-color: #ff4757;
+    top: 65px;
+    left: -65px;
+}
+
+.gift-box-bow {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    background-color: #ff4757;
+    border-radius: 50%;
+    top: -15px;
+    z-index: 3;
+}
+
+.gift-box-bow:before,
+.gift-box-bow:after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #ff4757;
+    border-radius: 50%;
+    top: 0;
+}
+
+.gift-box-bow:before {
+    left: -20px;
+}
+
+.gift-box-bow:after {
+    right: -20px;
+}
+
+.gift-box p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.gift-box.open .gift-visual {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    75% {
+        transform: rotate(10deg);
+    }
+}
+
+/* 页脚 */
+.footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #333;
+    color: white;
+    border-top-left-radius: 50% 20%;
+    border-top-right-radius: 50% 20%;
+    margin-top: 3rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .main-content {
+        padding: 0 1rem;
+    }
+    
+    .romantic-image {
+        height: 300px;
+    }
+    
+    .heart-decoration {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .heart-decoration:before,
+    .heart-decoration:after {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .heart-decoration:before {
+        top: -35px;
+    }
+    
+    .heart-decoration:after {
+        left: -35px;
+    }
+    
+    .heart-decoration-2 {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .heart-decoration-2:before,
+    .heart-decoration-2:after {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .heart-decoration-2:before {
+        top: -25px;
+    }
+    
+    .heart-decoration-2:after {
+        left: -25px;
+    }
+    
+    .heart-decoration-3 {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .heart-decoration-3:before,
+    .heart-decoration-3:after {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .heart-decoration-3:before {
+        top: -30px;
+    }
+    
+    .heart-decoration-3:after {
+        left: -30px;
+    }
+    
+    .declaration-section {
+        padding: 2rem;
+    }
+    
+    .declaration-section h2 {
+        font-size: 2rem;
+    }
+    
+    .countdown {
+        gap: 1rem;
+    }
+    
+    .countdown-item {
+        min-width: 80px;
+        padding: 1rem;
+    }
+    
+    .countdown-item span {
+        font-size: 2rem;
+    }
+    
+    .gift-visual {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .gift-box-body {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .gift-box-ribbon {
+        width: 15px;
+        height: 120px;
+    }
+    
+    .gift-box-ribbon:before {
+        width: 120px;
+        height: 15px;
+        top: 52px;
+        left: -52px;
+    }
+    
+    .gift-box-bow {
+        width: 50px;
+        height: 25px;
+        top: -12px;
+    }
+    
+    .gift-box-bow:before,
+    .gift-box-bow:after {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .gift-box-bow:before {
+        left: -15px;
+    }
+    
+    .gift-box-bow:after {
+        right: -15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 3rem 1rem;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .romantic-image {
+        height: 250px;
+    }
+    
+    .heart-decoration {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .heart-decoration:before,
+    .heart-decoration:after {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .heart-decoration:before {
+        top: -25px;
+    }
+    
+    .heart-decoration:after {
+        left: -25px;
+    }
+    
+    .heart-decoration-2 {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .heart-decoration-2:before,
+    .heart-decoration-2:after {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .heart-decoration-2:before {
+        top: -20px;
+    }
+    
+    .heart-decoration-2:after {
+        left: -20px;
+    }
+    
+    .heart-decoration-3 {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .heart-decoration-3:before,
+    .heart-decoration-3:after {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .heart-decoration-3:before {
+        top: -22px;
+    }
+    
+    .heart-decoration-3:after {
+        left: -22px;
+    }
+    
+    .declaration-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .countdown-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .gift-section h2 {
+        font-size: 1.5rem;
+    }
+    
+    .gift-visual {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .gift-box-body {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .gift-box-ribbon {
+        width: 12px;
+        height: 100px;
+    }
+    
+    .gift-box-ribbon:before {
+        width: 100px;
+        height: 12px;
+        top: 44px;
+        left: -44px;
+    }
+    
+    .gift-box-bow {
+        width: 40px;
+        height: 20px;
+        top: -10px;
+    }
+    
+    .gift-box-bow:before,
+    .gift-box-bow:after {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .gift-box-bow:before {
+        left: -12px;
+    }
+    
+    .gift-box-bow:after {
+        right: -12px;
+    }
+}
+
+/* 平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 加载动画 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-content section {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.main-content section:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.main-content section:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.main-content section:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.main-content section:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+/* 初始化时隐藏，通过动画显示 */
+.main-content section {
+    opacity: 0;
+}

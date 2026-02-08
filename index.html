@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>情人节快乐</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 爱心背景 -->
+    <div class="hearts-container"></div>
+    
+    <!-- 头部 -->
+    <header class="header">
+        <h1>情人节快乐</h1>
+        <p>爱你，直到永远</p>
+    </header>
+    
+    <!-- 主体内容 -->
+    <main class="main-content">
+        <!-- 浪漫图片 -->
+        <section class="image-section">
+            <div class="romantic-image">
+                <div class="heart-decoration"></div>
+                <div class="heart-decoration heart-decoration-2"></div>
+                <div class="heart-decoration heart-decoration-3"></div>
+            </div>
+        </section>
+        
+        <!-- 爱的宣言 -->
+        <section class="declaration-section">
+            <h2>我的爱</h2>
+            <p>你是我生命中最美好的礼物，每一个与你相处的瞬间都是珍贵的回忆。</p>
+            <p>无论未来的路有多长，我都愿意与你一起走过，分享生活的喜怒哀乐。</p>
+            <p>我爱你，不仅仅是今天，而是每一天，直到永远。</p>
+        </section>
+        
+        <!-- 倒计时 -->
+        <section class="countdown-section">
+            <h2>距离情人节还有</h2>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span id="days">0</span>
+                    <p>天</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="hours">0</span>
+                    <p>时</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="minutes">0</span>
+                    <p>分</p>
+                </div>
+                <div class="countdown-item">
+                    <span id="seconds">0</span>
+                    <p>秒</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 礼物区域 -->
+        <section class="gift-section">
+            <h2>为你准备的惊喜</h2>
+            <div class="gift-box">
+                <div class="gift-visual">
+                    <div class="gift-box-body"></div>
+                    <div class="gift-box-ribbon"></div>
+                    <div class="gift-box-bow"></div>
+                </div>
+                <p>点击打开礼物</p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="footer">
+        <p>用爱编织的页面，送给最爱的你</p>
+    </footer>
+    
+    <!-- JavaScript -->
+    <script>
+        // 爱心背景动画
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            document.querySelector('.hearts-container').appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+        
+        setInterval(createHeart, 300);
+        
+        // 倒计时功能
+        function updateCountdown() {
+            const now = new Date();
+            const valentineDay = new Date(now.getFullYear(), 1, 14); // 2月14日
+            
+            if (now > valentineDay) {
+                valentineDay.setFullYear(valentineDay.getFullYear() + 1);
+            }
+            
+            const diff = valentineDay - now;
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days;
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('seconds').textContent = seconds;
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // 礼物盒点击效果
+        document.querySelector('.gift-box').addEventListener('click', function() {
+            this.classList.add('open');
+            setTimeout(() => {
+                alert('惊喜！爱你一万年！');
+            }, 500);
+        });
+    </script>
+</body>
+</html>
